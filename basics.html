@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="basics">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="variables.html">Variables & Types</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <h1>JavaScript Basics</h1>
+
+    <h2>Introduction to JavaScript</h2>
+    <div class="definition">
+      JavaScript is a programming language used to write logic and instructions that a computer can execute.
+    </div>
+
+    <p>
+      From this point onward, JavaScript becomes the most important part of development.
+      HTML and CSS are for structure and design, but JavaScript is responsible for logic and behavior.
+    </p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo">
+
+    <h2>What Is A Programming Language?</h2>
+    <div class="definition">
+      A programming language is a language used to communicate with a computer and write logical instructions.
+    </div>
+
+    <p>
+      HTML and CSS also give instructions, but they do not allow us to write logic.
+      JavaScript allows decision making, conditions, and dynamic behavior.
+    </p>
+
+    <div class="example">
+if(userLoggedIn){
+  showDashboard()
+}
+    </div>
+
+    <h2>Key Properties of JavaScript</h2>
+
+    <h3>Single Threaded</h3>
+    <div class="definition">
+      JavaScript executes one task at a time.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1400/1*GqQ3N0nRz7Z84qxd6QbaPg.png" alt="Single threaded illustration">
+
+    <p>
+      Think of a cashier in a shop. Only one person is served at a time.
+    </p>
+
+    <h3>Synchronous</h3>
+    <div class="definition">
+      JavaScript executes code line by line in order.
+    </div>
+
+    <p>
+      It does not skip lines. Each line must finish before moving to the next.
+    </p>
+
+    <h3>Weakly Typed</h3>
+    <div class="definition">
+      Variables do not have fixed data types.
+    </div>
+
+    <div class="example">
+let a = 10
+a = "hello"
+a = true
+    </div>
+
+    <h3>Dynamically Typed</h3>
+    <div class="definition">
+      The type of variable is decided at runtime.
+    </div>
+
+    <p>
+      JavaScript decides the type when the code runs, not before.
+    </p>
+
+    <h2>Interpreted Vs Compiled Languages</h2>
+    <div class="definition">
+      Programming languages are of two types:
+      <ul>
+        <li><b>Compiled Languages</b></li>
+        <li><b>Interpreted Languages</b></li>
+      </ul>
+    </div>
+
+    <h3>Compiled Languages</h3>
+    <div class="definition">
+      In compiled languages, the entire code is read and checked before execution.
+    </div>
+
+    <p>
+      A compiler goes through the complete code from top to bottom and finds all errors before running the program.
+    </p>
+
+    <div class="example">
+C, C++, Java -> Compiled Languages
+    </div>
+
+    <div class="note">
+      If there is even one error, the program will not run until all errors are fixed.
+    </div>
+
+    <h3>Interpreted Languages</h3>
+    <div class="definition">
+      In interpreted languages, the code is executed line by line.
+    </div>
+
+    <p>
+      Each line is executed one after another. If an error occurs, execution stops immediately and the next lines are not executed.
+    </p>
+
+    <div class="example">
+Line 1 -> runs
+Line 2 -> runs
+Line 3 -> error X
+Line 4 -> will NOT run
+    </div>
+
+    <div class="note">
+      JavaScript is an interpreted language.
+    </div>
+
+    <h3>Key Difference</h3>
+    <table border="1" cellpadding="10">
+      <tr>
+        <th>Compiled</th>
+        <th>Interpreted</th>
+      </tr>
+      <tr>
+        <td>Entire code runs together</td>
+        <td>Runs line by line</td>
+      </tr>
+      <tr>
+        <td>Errors shown before execution</td>
+        <td>Errors shown during execution</td>
+      </tr>
+      <tr>
+        <td>Faster after compilation</td>
+        <td>Slightly slower</td>
+      </tr>
+    </table>
+
+    <h3>Instructor Insight</h3>
+    <div class="note">
+      JavaScript executes code line by line. If an error occurs, execution stops at that point and does not proceed further.
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

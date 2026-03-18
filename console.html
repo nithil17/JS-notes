@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Console And Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="console">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="variables.html">Variables & Types</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <h1>Console & Browser</h1>
+
+    <h2>Console In JavaScript</h2>
+    <img src="Images/console.png" alt="Console REPL diagram">
+
+    <div class="definition">
+      Console is a developer tool that works as a REPL system.
+    </div>
+
+    <p>REPL stands for:</p>
+    <ul>
+      <li><b>Read</b></li>
+      <li><b>Evaluate</b></li>
+      <li><b>Print</b></li>
+      <li><b>Loop</b></li>
+    </ul>
+
+    <h3>How Console Works</h3>
+    <p>
+      When you open the browser console, it continuously waits for your input. This is the <b>Read</b> phase.
+    </p>
+
+    <div class="example">
+1 + 1
+    </div>
+
+    <p>
+      When you press Enter, the console evaluates the expression. This is the <b>Evaluate</b> phase.
+    </p>
+
+    <div class="example">
+2
+    </div>
+
+    <p>
+      This is the <b>Print</b> phase. After printing, the console loops back and waits for the next input.
+    </p>
+
+    <h3>REPL Flow</h3>
+    <ul>
+      <li>Console reads your input</li>
+      <li>Evaluates the code</li>
+      <li>Prints the result</li>
+      <li>Loops back to wait for next input</li>
+    </ul>
+
+    <h3>Examples</h3>
+    <div class="example">
+10 + 5        // Output: 15
+"Hi" + " JS"  // Output: Hi JS
+true && false // Output: false
+    </div>
+
+    <div class="note">
+      Console is not just for output. It is used to test, debug, and experiment with code in real time.
+    </div>
+
+    <h3>Important Clarification</h3>
+    <ul>
+      <li>Console is a tool</li>
+      <li>JavaScript is the language</li>
+    </ul>
+
+    <div class="note">
+      Console does not convert code to machine language. It only helps execute and display results.
+    </div>
+
+    <h2>JavaScript In Browser</h2>
+    <div class="definition">
+      JavaScript is the only programming language directly understood by browsers.
+    </div>
+
+    <p>
+      You can run JavaScript directly inside the browser console.
+    </p>
+
+    <div class="definition">
+      Console is a developer tool that works as a REPL system (Read, Evaluate, Print, Loop) where JavaScript code can be executed and tested in real time.
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
