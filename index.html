@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Textbook Notes</title>
+
+  <style>
+  :root {
+  --bg: #ffffff;
+  --text: #111;
+  --card: #f9f9f9;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --card: #1e293b;
+}
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.definition {
+  background: var(--card);
+  padding: 12px;
+  border-left: 5px solid #2563eb;
+  margin: 15px 0;
+}
+
+.example {
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  font-family: monospace;
+}
+
+button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+  </style>
+</head>
+
+<body>
+<button onclick="toggleMode()">🌙 Toggle Mode</button>
+<h1>JavaScript Complete Notes (Textbook Style)</h1>
+
+<h2>1. Introduction to JavaScript</h2>
+
+<div class="definition">
+JavaScript is a programming language used to write logic and instructions that a computer can execute.
+</div>
+
+<p>
+From this point onward, JavaScript becomes the most important part of development. 
+HTML and CSS are for structure and design, but JavaScript is responsible for logic and behavior.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+
+---
+
+<h2>2. What is a Programming Language?</h2>
+
+<div class="definition">
+A programming language is a language used to communicate with a computer and write logical instructions.
+</div>
+
+<p>
+HTML and CSS also give instructions, but they do not allow us to write logic. 
+JavaScript allows decision making, conditions, and dynamic behavior.
+</p>
+
+<div class="example">
+if(userLoggedIn){
+  showDashboard()
+}
+</div>
+
+---
+
+<h2>3. Key Properties of JavaScript</h2>
+
+<h3>Single Threaded</h3>
+<div class="definition">
+JavaScript executes one task at a time.
+</div>
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*GqQ3N0nRz7Z84qxd6QbaPg.png">
+
+<p>
+Think of a cashier in a shop. Only one person is served at a time.
+</p>
+
+---
+
+<h3>Synchronous</h3>
+<div class="definition">
+JavaScript executes code line by line in order.
+</div>
+
+<p>
+It does not skip lines. Each line must finish before moving to the next.
+</p>
+
+---
+
+<h3>Weakly Typed</h3>
+<div class="definition">
+Variables do not have fixed data types.
+</div>
+
+<div class="example">
+let a = 10
+a = "hello"
+a = true
+</div>
+
+---
+
+<h3>Dynamically Typed</h3>
+<div class="definition">
+The type of variable is decided at runtime.
+</div>
+
+<p>
+JavaScript decides the type when the code runs, not before.
+</p>
+
+---
+
+<h2>4. Interpreted vs Compiled Languages</h2>
+
+<div class="definition">
+Programming languages are of two types:
+<ul>
+<li><b>Compiled Languages</b></li>
+<li><b>Interpreted Languages</b></li>
+</ul>
+</div>
+
+<h3>Compiled Languages</h3>
+
+<div class="definition">
+In compiled languages, the entire code is read and checked before execution.
+</div>
+
+<p>
+A compiler goes through the complete code from top to bottom and finds all errors before running the program.
+</p>
+
+<div class="example">
+C, C++, Java → Compiled Languages
+</div>
+
+<div class="note">
+If there is even one error, the program will not run until all errors are fixed.
+</div>
+
+---
+
+<h3>Interpreted Languages</h3>
+
+<div class="definition">
+In interpreted languages, the code is executed line by line.
+</div>
+
+<p>
+Each line is executed one after another. If an error occurs, execution stops immediately and the next lines are not executed.
+</p>
+
+<div class="example">
+Line 1 → runs  
+Line 2 → runs  
+Line 3 → error ❌  
+Line 4 → will NOT run
+</div>
+
+<div class="note">
+JavaScript is an interpreted language.
+</div>
+
+---
+
+<h3>Key Difference</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Compiled</th>
+<th>Interpreted</th>
+</tr>
+<tr>
+<td>Entire code runs together</td>
+<td>Runs line by line</td>
+</tr>
+<tr>
+<td>Errors shown before execution</td>
+<td>Errors shown during execution</td>
+</tr>
+<tr>
+<td>Faster after compilation</td>
+<td>Slightly slower</td>
+</tr>
+</table>
+
+---
+
+<h3>Instructor Insight</h3>
+
+<div class="note">
+JavaScript executes code line by line. If an error occurs, execution stops at that point and does not proceed further.
+</div>
+---
+
+<h2>5. Data Types</h2>
+
+<h3>Primitive Data Types</h3>
+
+<div class="definition">
+Primitive data types are the smallest units that cannot be broken further.
+</div>
+
+<p>
+Example analogy:
+</p>
+
+<img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+
+<p>
+Paneer → Milk → Milk cannot be broken further → Primitive
+</p>
+
+<ul>
+<li>Number</li>
+<li>String</li>
+<li>Boolean</li>
+<li>Undefined</li>
+<li>Null</li>
+<li>Symbol</li>
+<li>BigInt</li>
+</ul>
+
+---
+
+<h3>Non-Primitive Data Types</h3>
+
+<div class="definition">
+Everything in JavaScript is an object.
+</div>
+
+<div class="example">
+let user = {
+  age: 20,
+  isMale: true
+}
+</div>
+
+---
+
+<h3>Visual Representation: Variables as Pointers</h3>
+
+<p>
+According to the instructor, variables in JavaScript do not behave like traditional containers.
+Instead, they act as <b>pointers (references)</b> to values stored in memory.
+</p>
+
+<img src="Images/variable.png" alt="JavaScript Pointer Diagram">
+
+<p>
+In the above diagram:
+</p>
+
+<ul>
+<li><b>abc = 10</b> → variable points to value 10</li>
+<li><b>abc = true</b> → pointer shifts to new memory location</li>
+<li><b>abc = "samarth"</b> → pointer shifts again</li>
+</ul>
+
+
+
+<div class="definition">
+A variable always points to the latest assigned value, not the previous ones.
+</div>
+---
+
+<h3>Key Concept (Instructor Statement)</h3>
+
+<div class="note">
+Everything in JavaScript points. There is no concept of container storing fixed data.
+</div>
+
+<p>
+Unlike languages like C++ or Java, JavaScript does not bind variables to a fixed type or value.
+Instead, variables dynamically shift their reference to new values.
+</p>
+-----
+
+<h3>Automatic Garbage Collection</h3>
+
+<div class="definition">
+JavaScript automatically removes unused values from memory.
+</div>
+
+<p>
+When a variable stops pointing to a value, and no other variable is using it,
+JavaScript's garbage collector removes it from memory.
+</p>
+
+<div class="note">
+Once a variable is declared, it does not store the value directly. 
+It points to a memory location where the value is stored.
+</div>
+
+<p>
+Example:
+</p>
+
+<div class="example">
+let a = 10
+a = true
+a = "hello"
+</div>
+
+<p>
+Here:
+</p>
+
+<ul>
+<li>10 → removed (unused)</li>
+<li>true → removed (unused)</li>
+<li>"hello" → remains</li>
+</ul>
+
+<div class="note">
+This prevents memory leakage automatically.
+</div>
+
+-----
+
+<h3>Advantages of JavaScript Variable Model</h3>
+
+<ul>
+<li><b>Memory Efficient:</b> Unused values are automatically removed</li>
+<li><b>Flexible:</b> Variables can store any type of data</li>
+<li><b>Simple Syntax:</b> No need to declare data types</li>
+<li><b>Dynamic Behavior:</b> Easy to change values during runtime</li>
+<li><b>Beginner Friendly:</b> No strict typing rules</li>
+</ul>
+
+-----
+
+<h3>Disadvantages</h3>
+
+<ul>
+<li><b>Less Control:</b> Developer cannot manually manage memory</li>
+<li><b>Confusing for Beginners:</b> Pointer behavior is not visible</li>
+<li><b>Runtime Errors:</b> Type issues are detected late</li>
+<li><b>Debugging Difficulty:</b> Dynamic typing can cause unexpected bugs</li>
+</ul>
+--------
+<h2>Variable Nomenclature (Naming Rules)</h2>
+
+<p>
+In JavaScript, variables must follow certain naming rules. These rules ensure that the code is valid,
+readable, and understandable by both the developer and the JavaScript engine.
+</p>
+
+<img src="Images/Nomenclature.png" alt="Variable Naming Rules">
+
+<h3>Formal Rules</h3>
+
+<ul>
+<li>Variable names <b>cannot start with numbers (0–9)</b></li>
+<li>Variable names <b>can contain alphabets (a–z, A–Z) and digits (0–9)</b></li>
+<li>Only two special characters are allowed: <b>_ (underscore)</b> and <b>$ (dollar)</b></li>
+<li><b>Reserved keywords</b> cannot be used as variable names</li>
+<li>Variable names <b>can start with _ or $</b></li>
+<li>No other special characters (like @, #, %, etc.) are allowed</li>
+</ul>
+---
+
+<h4>Structure of Variable Declaration</h4>
+
+<img src="Images/Vardeclaration.png" alt="Variable Declaration Structure">
+
+<p>
+A variable declaration consists of three parts:
+</p>
+
+<ul>
+<li><b>Declarative keyword</b> → let</li>
+<li><b>Variable name</b> → xyz</li>
+<li><b>Value</b> → 100</li>
+</ul>
+
+<div class="definition">
+Syntax:
+</div>
+
+<div class="example">
+let xyz = 100;
+</div>
+
+<p>
+Here:
+</p>
+
+<ul>
+<li><b>let</b> → tells JavaScript we are creating a variable</li>
+<li><b>xyz</b> → name of the variable</li>
+<li><b>100</b> → value assigned to the variable</li>
+</ul>
+---
+
+<div class="note">
+JavaScript does not require you to define the data type while creating variables.
+The type is automatically decided based on the value.
+</div>
+
+<h4>Examples</h4>
+
+<div class="example">
+let a = 10        // number
+let b = "hello"   // string
+let c = true      // boolean
+</div>
+
+<p>
+The same variable can hold different types of values because JavaScript is dynamically typed.
+</p>
+
+<div class="example">
+let x = 10
+x = "text"
+x = false
+</div>
+
+<h2>7 Console in JavaScript</h2>
+
+<img src="Images/console.png" alt="Console REPL Diagram">
+
+<div class="definition">
+Console is a developer tool that works as a REPL system.
+</div>
+
+<p>
+REPL stands for:
+</p>
+
+<ul>
+<li><b>Read</b></li>
+<li><b>Evaluate</b></li>
+<li><b>Print</b></li>
+<li><b>Loop</b></li>
+</ul>
+
+<h3>How Console Works (Step by Step)</h3>
+
+<p>
+When you open the browser console, it continuously waits for your input.
+This is the <b>Read</b> phase.
+</p>
+
+<p>
+When you type something like:
+</p>
+
+<div class="example">
+1 + 1
+</div>
+
+<p>
+and press Enter, the console evaluates the expression.
+This is the <b>Evaluate</b> phase.
+</p>
+
+<p>
+Then it shows the result:
+</p>
+
+<div class="example">
+2
+</div>
+
+<p>
+This is the <b>Print</b> phase.
+</p>
+
+<p>
+After printing, the console again waits for the next input.
+This continuous cycle is called the <b>Loop</b>.
+</p>
+
+<h3>REPL Flow</h3>
+
+<ul>
+<li>Console reads your input</li>
+<li>Evaluates the code</li>
+<li>Prints the result</li>
+<li>Loops back to wait for next input</li>
+</ul>
+
+<div class="note">
+This cycle keeps repeating until you stop using the console.
+</div>
+
+<h3>Examples</h3>
+
+<div class="example">
+10 + 5        // Output: 15
+"Hi" + " JS"  // Output: Hi JS
+true && false // Output: false
+</div>
+
+<div class="note">
+Console is not just for output. It is used to test, debug, and experiment with code in real time.
+</div>
+
+<h3>Important Clarification</h3>
+
+<p>
+Console is often confused with JavaScript itself, but:
+</p>
+
+<ul>
+<li>Console is a tool</li>
+<li>JavaScript is the language</li>
+</ul>
+
+<div class="note">
+Console does NOT convert code to machine language. It only helps execute and display results.
+</div>
+
+<h3>Uses of Console</h3>
+
+<ul>
+<li>Debugging code</li>
+<li>Testing logic quickly</li>
+<li>Checking variable values</li>
+<li>Understanding behavior of JavaScript</li>
+</ul>
+
+<h3>Viva Answer</h3>
+
+<div class="definition">
+Console is a developer tool that works as a REPL system (Read, Evaluate, Print, Loop) where JavaScript code can be executed and tested in real time.
+</div>
+---
+
+<h2>8. JavaScript in Browser</h2>
+
+<div class="definition">
+JavaScript is the only programming language directly understood by browsers.
+</div>
+
+-------
+
+<p>
+You can run JavaScript directly inside the browser console.
+</p>
+
+<h3>9. Checking Data Types using typeof</h3>
+
+<p>
+In JavaScript, we use the <b>typeof</b> operator to check the type of a variable.
+</p>
+
+<img src="Images/typeOf.png" alt="typeof output example">
+
+<div class="definition">
+typeof is used to identify the data type of any variable.
+</div>
+
+<p>
+In the example shown:
+</p>
+
+<div class="example">
+let str1 = "sam"<br>
+let str2 = 'vohra'<br>
+let str3 = `maverick`<br>
+
+console.log(typeof str1) <br>
+console.log(typeof str2) <br>
+console.log(typeof str3) <br>
+</div>
+
+<p>
+The output for all three variables is:
+</p>
+
+<div class="example">
+string <br>
+string <br>
+string <br>
+</div>
+
+<div class="note">
+Even though the strings are written using:
+<ul>
+<li>Double quotes (" ")</li>
+<li>Single quotes (' ')</li>
+<li>Backticks (` `)</li>
+</ul>
+They all are treated as <b>string</b> data type in JavaScript.
+</div>
+
+<p>
+The instructor emphasized that:
+</p>
+
+<ul>
+<li>JavaScript does NOT have separate types like char, int, float</li>
+<li>Everything numeric is <b>number</b></li>
+<li>Everything text is <b>string</b></li>
+</ul>
+
+<h4>More Examples</h4>
+
+<div class="example">
+typeof 10        // "number"
+typeof 10.5      // "number"
+typeof true      // "boolean"
+typeof "hello"   // "string"
+</div>
+
+<div class="note">
+JavaScript does not differentiate between integer and float.
+Both are considered as <b>number</b>.
+</div>
+
+<div class="definition">
+typeof is an operator in JavaScript used to check the data type of a variable. 
+It returns types like "number", "string", "boolean", etc.
+</div>
+
+---
+
+<h2>9. Viva Questions</h2>
+
+<ul>
+<li>What is JavaScript?</li>
+<li>What is a programming language?</li>
+<li>Difference between HTML and JavaScript?</li>
+<li>What is single-threaded?</li>
+<li>What is synchronous?</li>
+<li>What is weakly typed?</li>
+<li>What is dynamic typing?</li>
+<li>What is primitive data type?</li>
+<li>What is garbage collection?</li>
+</ul>
+
+---
+
+<h2>10. Homework</h2>
+
+<ul>
+<li>Write examples of weak typing</li>
+<li>Explain primitive using your own analogy</li>
+<li>Create variables and change their types</li>
+<li>Explain garbage collection with example</li>
+<li>Compare interpreted vs compiled</li>
+</ul>
+
+---
+
+<h2>Final Summary</h2>
+
+<div class="note">
+JavaScript = Logic + Single Thread + Synchronous + Dynamic + Weak Typing + Pointer-based
+</div>
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+</script>
+</body>
+</html>
