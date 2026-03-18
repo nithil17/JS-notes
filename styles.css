@@ -46,3 +46,28 @@ button {
   color: white;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  button {
+    position: static;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+}
