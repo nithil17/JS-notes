@@ -2,61 +2,11 @@
 <html>
 <head>
   <title>JavaScript Textbook Notes</title>
-
-  <style>
-  :root {
-  --bg: #ffffff;
-  --text: #111;
-  --card: #f9f9f9;
-}
-
-body.dark {
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --card: #1e293b;
-}
-
-body {
-  font-family: Georgia, serif;
-  line-height: 1.8;
-  max-width: 900px;
-  margin: auto;
-  padding: 40px;
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.3s;
-}
-
-.definition {
-  background: var(--card);
-  padding: 12px;
-  border-left: 5px solid #2563eb;
-  margin: 15px 0;
-}
-
-.example {
-  background: #111;
-  color: #0f0;
-  padding: 10px;
-  font-family: monospace;
-}
-
-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-}
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<button onclick="toggleMode()">🌙 Toggle Mode</button>
+<button id="theme-toggle" type="button">Toggle Mode</button>
 <h1>JavaScript Complete Notes (Textbook Style)</h1>
 
 <h2>1. Introduction to JavaScript</h2>
@@ -66,7 +16,7 @@ JavaScript is a programming language used to write logic and instructions that a
 </div>
 
 <p>
-From this point onward, JavaScript becomes the most important part of development. 
+From this point onward, JavaScript becomes the most important part of development.
 HTML and CSS are for structure and design, but JavaScript is responsible for logic and behavior.
 </p>
 
@@ -81,7 +31,7 @@ A programming language is a language used to communicate with a computer and wri
 </div>
 
 <p>
-HTML and CSS also give instructions, but they do not allow us to write logic. 
+HTML and CSS also give instructions, but they do not allow us to write logic.
 JavaScript allows decision making, conditions, and dynamic behavior.
 </p>
 
@@ -164,7 +114,7 @@ A compiler goes through the complete code from top to bottom and finds all error
 </p>
 
 <div class="example">
-C, C++, Java → Compiled Languages
+C, C++, Java -> Compiled Languages
 </div>
 
 <div class="note">
@@ -184,10 +134,10 @@ Each line is executed one after another. If an error occurs, execution stops imm
 </p>
 
 <div class="example">
-Line 1 → runs  
-Line 2 → runs  
-Line 3 → error ❌  
-Line 4 → will NOT run
+Line 1 -> runs
+Line 2 -> runs
+Line 3 -> error X
+Line 4 -> will NOT run
 </div>
 
 <div class="note">
@@ -241,7 +191,7 @@ Example analogy:
 <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
 
 <p>
-Paneer → Milk → Milk cannot be broken further → Primitive
+Paneer -> Milk -> Milk cannot be broken further -> Primitive
 </p>
 
 <ul>
@@ -285,12 +235,10 @@ In the above diagram:
 </p>
 
 <ul>
-<li><b>abc = 10</b> → variable points to value 10</li>
-<li><b>abc = true</b> → pointer shifts to new memory location</li>
-<li><b>abc = "samarth"</b> → pointer shifts again</li>
+<li><b>abc = 10</b> -> variable points to value 10</li>
+<li><b>abc = true</b> -> pointer shifts to new memory location</li>
+<li><b>abc = "samarth"</b> -> pointer shifts again</li>
 </ul>
-
-
 
 <div class="definition">
 A variable always points to the latest assigned value, not the previous ones.
@@ -321,7 +269,7 @@ JavaScript's garbage collector removes it from memory.
 </p>
 
 <div class="note">
-Once a variable is declared, it does not store the value directly. 
+Once a variable is declared, it does not store the value directly.
 It points to a memory location where the value is stored.
 </div>
 
@@ -340,9 +288,9 @@ Here:
 </p>
 
 <ul>
-<li>10 → removed (unused)</li>
-<li>true → removed (unused)</li>
-<li>"hello" → remains</li>
+<li>10 -> removed (unused)</li>
+<li>true -> removed (unused)</li>
+<li>"hello" -> remains</li>
 </ul>
 
 <div class="note">
@@ -384,8 +332,8 @@ readable, and understandable by both the developer and the JavaScript engine.
 <h3>Formal Rules</h3>
 
 <ul>
-<li>Variable names <b>cannot start with numbers (0–9)</b></li>
-<li>Variable names <b>can contain alphabets (a–z, A–Z) and digits (0–9)</b></li>
+<li>Variable names <b>cannot start with numbers (0-9)</b></li>
+<li>Variable names <b>can contain alphabets (a-z, A-Z) and digits (0-9)</b></li>
 <li>Only two special characters are allowed: <b>_ (underscore)</b> and <b>$ (dollar)</b></li>
 <li><b>Reserved keywords</b> cannot be used as variable names</li>
 <li>Variable names <b>can start with _ or $</b></li>
@@ -402,9 +350,9 @@ A variable declaration consists of three parts:
 </p>
 
 <ul>
-<li><b>Declarative keyword</b> → let</li>
-<li><b>Variable name</b> → xyz</li>
-<li><b>Value</b> → 100</li>
+<li><b>Declarative keyword</b> -> let</li>
+<li><b>Variable name</b> -> xyz</li>
+<li><b>Value</b> -> 100</li>
 </ul>
 
 <div class="definition">
@@ -420,9 +368,9 @@ Here:
 </p>
 
 <ul>
-<li><b>let</b> → tells JavaScript we are creating a variable</li>
-<li><b>xyz</b> → name of the variable</li>
-<li><b>100</b> → value assigned to the variable</li>
+<li><b>let</b> -> tells JavaScript we are creating a variable</li>
+<li><b>xyz</b> -> name of the variable</li>
+<li><b>100</b> -> value assigned to the variable</li>
 </ul>
 ---
 
@@ -644,7 +592,7 @@ Both are considered as <b>number</b>.
 </div>
 
 <div class="definition">
-typeof is an operator in JavaScript used to check the data type of a variable. 
+typeof is an operator in JavaScript used to check the data type of a variable.
 It returns types like "number", "string", "boolean", etc.
 </div>
 
@@ -683,10 +631,6 @@ It returns types like "number", "string", "boolean", etc.
 <div class="note">
 JavaScript = Logic + Single Thread + Synchronous + Dynamic + Weak Typing + Pointer-based
 </div>
-<script>
-function toggleMode() {
-  document.body.classList.toggle("dark");
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>

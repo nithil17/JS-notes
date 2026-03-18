@@ -1,0 +1,48 @@
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --card: #f9f9f9;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --card: #1e293b;
+}
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.definition {
+  background: var(--card);
+  padding: 12px;
+  border-left: 5px solid #2563eb;
+  margin: 15px 0;
+}
+
+.example {
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  font-family: monospace;
+}
+
+button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
