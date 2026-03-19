@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operators</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+       <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+<section>
+
+  <h1>Operators in JavaScript</h1>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Operators are symbols used to perform operations like addition, comparison, and logic in JavaScript.
+  </div>
+
+  <p>
+    As explained in class:
+    <br>
+    <b>“Operators are just tools or symbols used to perform operations.”</b>
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Arithmetic Operators</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Used for basic mathematical calculations.
+  </div>
+
+  <pre><code>
++  → Addition
+-  → Subtraction
+*  → Multiplication
+/  → Division
+%  → Modulus (Remainder)
+** → Power
+  </code></pre>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Power Operator (**)</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Power means multiplying a number by itself multiple times.
+  </div>
+
+  <pre><code>
+console.log(2 ** 3);
+  </code></pre>
+
+  <p>
+    2 × 2 × 2 = 8
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 8
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Modulus Operator (%)</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Modulus gives the remainder after division.
+  </div>
+
+  <pre><code>
+console.log(25 % 3);
+  </code></pre>
+
+  <p>
+    25 ÷ 3 = 24 remainder 1
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 1
+  </div>
+
+  <h3>More Examples</h3>
+
+  <pre><code>
+5 % 3 → 2
+6 % 3 → 0
+7 % 3 → 1
+3 % 2 → 1
+3 % 3 → 0
+  </code></pre>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Important Note (JavaScript Numbers)</h2>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    JavaScript does NOT have separate integer or float types. Everything is a number.
+  </div>
+
+  <pre><code>
+let a = 10;
+let b = 20;
+
+console.log(a / b);
+  </code></pre>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 0.5
+  </div>
+
+  <p>
+    Unlike C++, JavaScript does NOT convert it to 0.
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Comparison Operators</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Used to compare values. Output is always true or false.
+  </div>
+
+  <pre><code>
+10 > 3   → true
+3 > 10   → false
+5 >= 5   → true
+  </code></pre>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Tricky Concept: Type Coercion</h2>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    JavaScript automatically converts true → 1 and false → 0 during comparisons.
+  </div>
+
+  <pre><code>
+console.log(3 > 3 > 2);
+  </code></pre>
+
+  <p>
+    Step-by-step:
+    <br>
+    3 > 3 → false → becomes 0 <br>
+    0 > 2 → false
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: false
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Equality Operators</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Used to check if two values are equal.
+  </div>
+
+  <h3>Double Equals (==)</h3>
+
+  <div style="border-left: 4px solid #f59e0b; padding: 10px; background-color: #fffbeb;">
+    Checks only value, ignores type.
+  </div>
+
+  <pre><code>
+console.log(10 == "10");
+  </code></pre>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: true
+  </div>
+
+  <h3>Triple Equals (===)</h3>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    Strict equality → checks both value AND type.
+  </div>
+
+  <pre><code>
+console.log(10 === "10");
+  </code></pre>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: false
+  </div>
+
+  <p>
+    Teacher trick:
+    <br>
+    <b>== → Mother (less strict)</b><br>
+    <b>=== → Father (strict)</b>
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Logical Operators</h2>
+
+  <h3>OR (||)</h3>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    If ANY condition is true → result is true.
+  </div>
+
+  <pre><code>
+let marks = 45;
+let attendance = 60;
+
+if(marks >= 33 || attendance >= 75){
+  console.log("Pass");
+}
+  </code></pre>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Pass
+  </div>
+
+  <p>
+    Even if one condition is true, it passes.
+  </p>
+
+  <h3>AND (&&)</h3>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    All conditions must be true.
+  </div>
+
+  <pre><code>
+if(marks >= 33 && attendance >= 75){
+  console.log("Pass");
+}else{
+  console.log("Fail");
+}
+  </code></pre>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Fail
+  </div>
+
+</section>
+
+<hr>
+
+ <section>
+
+  <h2>🔥 Short Circuiting (Very Important Concept)</h2>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    Short circuiting means: <b>as soon as the final result is known, JavaScript stops checking further conditions.</b>
+  </div>
+
+  <p>
+    This happens in <b>logical operators (|| and &&)</b>.
+  </p>
+
+  <p>
+    Teacher’s line:
+    <br>
+    <b>“As soon as the final resultant is known, the further operation stops.”</b>
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>Short Circuiting with OR (||)</h3>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    In OR (||), only ONE true condition is enough.
+  </div>
+
+  <pre><code>
+let marks = 45;
+
+if(marks >= 33 || attendance >= 75){
+  console.log("Pass");
+}
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    Step 1: Check first condition → <b>marks >= 33</b><br>
+    45 >= 33 → <b>true ✅</b>
+  </p>
+
+  <p>
+    Step 2: Now JavaScript already knows the final result:
+    <br>
+    In OR → if one condition is true → result is TRUE
+  </p>
+
+  <p>
+    Step 3: So it <b>does NOT check attendance</b> ❌
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Pass
+  </div>
+
+  <p>
+    ⚠️ Even if <b>attendance is not defined</b>, no error will come because it is never checked.
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Short Circuiting with AND (&&)</h2>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    In AND (&&), ALL conditions must be true.
+  </div>
+
+  <pre><code>
+let marks = 15;
+
+if(marks >= 33 && attendance >= 75){
+  console.log("Pass");
+}else{
+  console.log("Fail");
+}
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    Step 1: Check first condition → <b>marks >= 33</b><br>
+    15 >= 33 → <b>false ❌</b>
+  </p>
+
+  <p>
+    Step 2: In AND → if ANY condition is false → result is FALSE
+  </p>
+
+  <p>
+    Step 3: So JavaScript <b>stops immediately</b> and does NOT check attendance
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Fail
+  </div>
+
+  <p>
+    ⚠️ Even if attendance is missing, no error occurs because it was never evaluated.
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>🚨 Important Interview Case</h3>
+
+  <pre><code>
+let marks = 45;
+
+if(marks >= 33 || attendance >= 75){
+  console.log("Pass");
+}
+  </code></pre>
+
+  <p>
+    If <b>attendance is not declared</b>:
+  </p>
+
+  <p>
+    Normally → accessing undefined variable → ERROR ❌<br>
+    But here → NO ERROR ✅
+  </p>
+
+  <p>
+    Because:
+    <br>
+    First condition is true → final result known → second condition skipped
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>⚡ Summary</h3>
+
+  <ul>
+    <li><b>OR (||):</b> Stops when it finds first TRUE</li>
+    <li><b>AND (&&):</b> Stops when it finds first FALSE</li>
+    <li><b>Main Rule:</b> Once result is decided → execution stops</li>
+  </ul>
+
+</section>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

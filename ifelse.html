@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>If - Else</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+       <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+   <section>
+
+  <h1>If-Else in JavaScript</h1>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    If-else is used to make decisions in JavaScript based on conditions.
+  </div>
+
+  <p>
+    It checks whether a condition is <b>true</b> or <b>false</b> and runs code accordingly.
+  </p>
+
+  <p>
+    Think of it like a real-life situation: <br>
+    If it is raining → bring umbrella ☔ <br>
+    Else → don’t bring umbrella
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Simple If-Else</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    If condition is true, code inside if runs. Otherwise, else block runs.
+  </div>
+
+  <pre><code>
+let marks = 55;
+
+if(marks > 75){
+  console.log("Graduate");
+}else{
+  console.log("Not Graduate");
+}
+  </code></pre>
+
+  <p>
+    Condition: marks > 75 <br>
+    55 > 75 → False ❌
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Not Graduate
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>If - Else If - Else</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Used when multiple conditions are present. Stops at the first true condition.
+  </div>
+
+  <pre><code>
+let marks = 85;
+
+if(marks > 90){
+  console.log("O");
+}else if(marks > 80){
+  console.log("A");
+}else if(marks > 70){
+  console.log("B");
+}else if(marks > 60){
+  console.log("C");
+}else{
+  console.log("FAIL");
+}
+  </code></pre>
+
+  <p>
+    85 > 90 → False <br>
+    85 > 80 → True ✅ → Stops here
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: A
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Multiple If Statements</h2>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    All conditions are checked independently. This can lead to multiple outputs.
+  </div>
+
+  <pre><code>
+let marks = 85;
+
+if(marks > 90){
+  console.log("O");
+}
+
+if(marks > 80){
+  console.log("A");
+}
+
+if(marks > 70){
+  console.log("B");
+}
+
+if(marks > 60){
+  console.log("C");
+}else{
+  console.log("FAIL");
+}
+  </code></pre>
+
+  <p>
+    85 > 80 → A <br>
+    85 > 70 → B <br>
+    85 > 60 → C
+  </p>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    Output: A B C
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>Key Difference</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    If-Else → One condition <br>
+    Else If → Stops at first true condition <br>
+    Multiple If → Executes all matching conditions
+  </div>
+
+  <p>
+    Teacher’s takeaway: <br>
+    <b>“If you want only one output → use else-if.  
+    If you use multiple if → you will get multiple outputs.”</b>
+  </p>
+
+</section>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+       <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <section>
+
+  <h2>🔁 Loops in JavaScript</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Loops are used to repeat a task multiple times without writing the same code again.
+  </div>
+
+  <p>
+    Teacher’s line:
+    <br>
+    <b>“Loops are used to perform repetitive tasks.”</b>
+  </p>
+
+  <p>
+    Example:
+    <br>
+    Printing numbers from 1 to 10 manually is difficult ❌
+  </p>
+
+  <pre><code>
+console.log(1);
+console.log(2);
+...
+console.log(10);
+  </code></pre>
+
+  <p>
+    Instead, we use loops ✅
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>1️⃣ For Loop</h2>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Used when we know how many times the loop should run.
+  </div>
+
+  <pre><code>
+for(let i = 1; i <= 10; i++){
+  console.log(i);
+}
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    <b>Initialization:</b> i = 1 (start from 1)<br>
+    <b>Condition:</b> i <= 10 (run till 10)<br>
+    <b>Increment:</b> i++ (increase by 1)
+  </p>
+
+  <p>
+    Flow:
+    <br>
+    i = 1 → print 1<br>
+    i = 2 → print 2<br>
+    ...<br>
+    i = 10 → print 10<br>
+    i = 11 → condition false → stop
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 1 2 3 4 5 6 7 8 9 10
+  </div>
+
+  <p>
+    💡 Shortcut:
+  </p>
+
+  <pre><code>
+i++  ===  i = i + 1
+  </code></pre>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>2️⃣ While Loop</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Used when we don’t know how many times the loop will run.
+  </div>
+
+  <pre><code>
+let i = 1;
+
+while(i <= 10){
+  console.log(i);
+  i++;
+}
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    Step 1: Start with i = 1<br>
+    Step 2: Check condition → i <= 10<br>
+    Step 3: If true → run block<br>
+    Step 4: Increment i<br>
+    Step 5: Repeat
+  </p>
+
+  <p>
+    Flow:
+    <br>
+    i = 1 → print 1<br>
+    i = 2 → print 2<br>
+    ...<br>
+    i = 10 → print 10<br>
+    i = 11 → stop
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 1 2 3 4 5 6 7 8 9 10
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>3️⃣ Do-While Loop</h2>
+
+  <div style="border-left: 4px solid #f59e0b; padding: 10px; background-color: #fffbeb;">
+    Executes at least once, even if the condition is false.
+  </div>
+
+  <pre><code>
+let i = 1;
+
+do{
+  console.log(i);
+  i++;
+}while(i <= 10);
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    Step 1: Execute code FIRST<br>
+    Step 2: Then check condition<br>
+    Step 3: Repeat if true
+  </p>
+
+  <p>
+    Flow:
+    <br>
+    print 1 → then check<br>
+    print 2 → then check<br>
+    ...<br>
+    print 10 → stop
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 1 2 3 4 5 6 7 8 9 10
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>⚠️ Key Difference (Important)</h2>
+
+  <table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+      <th>Loop</th>
+      <th>Minimum Execution</th>
+    </tr>
+    <tr>
+      <td>for</td>
+      <td>0 times</td>
+    </tr>
+    <tr>
+      <td>while</td>
+      <td>0 times</td>
+    </tr>
+    <tr>
+      <td>do-while</td>
+      <td>1 time ✅</td>
+    </tr>
+  </table>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>🚨 Important Example</h2>
+
+  <pre><code>
+let i = 100;
+
+do{
+  console.log(i);
+  i++;
+}while(i <= 10);
+  </code></pre>
+
+  <p>
+    Even though condition is false (100 > 10), it still runs once.
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: 100
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h2>🎯 Final Takeaway</h2>
+
+  <ul>
+    <li><b>For Loop:</b> When number of iterations is known</li>
+    <li><b>While Loop:</b> When condition-based repetition is needed</li>
+    <li><b>Do-While:</b> When task must run at least once</li>
+  </ul>
+
+  <p>
+    Teacher’s message:
+    <br>
+    <b>“All loops do the same job — repeating tasks. Only the way they start differs.”</b>
+  </p>
+
+</section>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

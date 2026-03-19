@@ -12,9 +12,12 @@
   <nav class="topic-nav" aria-label="Topics">
     <h2>Topics</h2>
     <ul>
-      <li><a href="index.html">Home</a></li>
+       <li><a href="index.html">Home</a></li>
       <li><a href="basics.html">JS Basics</a></li>
-      <li><a href="variables.html">Variables & Types</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
       <li><a href="console.html">Console & Browser</a></li>
       <li><a href="practice.html">Viva & Homework</a></li>
     </ul>
@@ -168,8 +171,257 @@ Line 4 -> will NOT run
     <div class="note">
       JavaScript executes code line by line. If an error occurs, execution stops at that point and does not proceed further.
     </div>
+
+     <h2>Variables & Types</h2>
+
+    <h3>Data Types</h3>
+
+    <h3>Primitive Data Types</h3>
+    <div class="definition">
+      Primitive data types are the smallest units that cannot be broken further.
+    </div>
+
+    <p>Example analogy:</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Primitive analogy illustration">
+
+    <p>
+      Paneer -> Milk -> Milk cannot be broken further -> Primitive
+    </p>
+
+    <ul>
+      <li>Number</li>
+      <li>String</li>
+      <li>Boolean</li>
+      <li>Undefined</li>
+      <li>Null</li>
+      <li>Symbol</li>
+      <li>BigInt</li>
+    </ul>
+
+    <h3>Non-Primitive Data Types</h3>
+    <div class="definition">
+      Everything in JavaScript is an object.
+    </div>
+
+    <div class="example">
+let user = {
+  age: 20,
+  isMale: true
+}
+    </div>
+
+    <h3>Variables As Pointers</h3>
+    <p>
+      According to the instructor, variables in JavaScript do not behave like traditional containers.
+      Instead, they act as <b>pointers (references)</b> to values stored in memory.
+    </p>
+
+    <img src="Images/variable.png" alt="JavaScript pointer diagram">
+
+    <ul>
+      <li><b>abc = 10</b> -> variable points to value 10</li>
+      <li><b>abc = true</b> -> pointer shifts to new memory location</li>
+      <li><b>abc = "samarth"</b> -> pointer shifts again</li>
+    </ul>
+
+    <div class="definition">
+      A variable always points to the latest assigned value, not the previous ones.
+    </div>
+
+    <h3>Garbage Collection</h3>
+    <div class="definition">
+      JavaScript automatically removes unused values from memory.
+    </div>
+
+    <p>
+      When a variable stops pointing to a value, and no other variable is using it,
+      JavaScript's garbage collector removes it from memory.
+    </p>
+
+    <div class="example">
+let a = 10
+a = true
+a = "hello"
+    </div>
+
+    <ul>
+      <li>10 -> removed (unused)</li>
+      <li>true -> removed (unused)</li>
+      <li>"hello" -> remains</li>
+    </ul>
+
+    <div class="note">
+      This prevents memory leakage automatically.
+    </div>
+
+    <h3>Advantages And Disadvantages</h3>
+    <ul>
+      <li><b>Memory Efficient:</b> Unused values are automatically removed</li>
+      <li><b>Flexible:</b> Variables can store any type of data</li>
+      <li><b>Simple Syntax:</b> No need to declare data types</li>
+      <li><b>Dynamic Behavior:</b> Easy to change values during runtime</li>
+      <li><b>Beginner Friendly:</b> No strict typing rules</li>
+      <li><b>Less Control:</b> Developer cannot manually manage memory</li>
+      <li><b>Runtime Errors:</b> Type issues are detected late</li>
+      <li><b>Debugging Difficulty:</b> Dynamic typing can cause unexpected bugs</li>
+    </ul>
+
+    <h2>Variable Nomenclature</h2>
+    <p>
+      In JavaScript, variables must follow certain naming rules. These rules ensure that the code is valid,
+      readable, and understandable by both the developer and the JavaScript engine.
+    </p>
+
+    <img src="Images/Nomenclature.png" alt="Variable naming rules">
+
+    <ul>
+      <li>Variable names <b>cannot start with numbers (0-9)</b></li>
+      <li>Variable names <b>can contain alphabets (a-z, A-Z) and digits (0-9)</b></li>
+      <li>Only two special characters are allowed: <b>_</b> and <b>$</b></li>
+      <li><b>Reserved keywords</b> cannot be used as variable names</li>
+      <li>Variable names <b>can start with _ or $</b></li>
+    </ul>
+
+    <img src="Images/Vardeclaration.png" alt="Variable declaration structure">
+
+    <div class="example">
+let xyz = 100;
+    </div>
+
+    <div class="note">
+      JavaScript does not require you to define the data type while creating variables.
+      The type is automatically decided based on the value.
+    </div>
+
+    <div class="example">
+let a = 10
+let b = "hello"
+let c = true
+
+let x = 10
+x = "text"
+x = false
+    </div>
+
+    <h2>Checking Data Types Using typeof</h2>
+    <p>
+      In JavaScript, we use the <b>typeof</b> operator to check the type of a variable.
+    </p>
+
+    <img src="Images/typeOf.png" alt="typeof output example">
+
+    <div class="definition">
+      typeof is used to identify the data type of any variable.
+    </div>
+
+    <div class="example">
+let str1 = "sam"
+let str2 = 'vohra'
+let str3 = `maverick`
+
+console.log(typeof str1)
+console.log(typeof str2)
+console.log(typeof str3)
+    </div>
+
+    <div class="example">
+typeof 10        // "number"
+typeof 10.5      // "number"
+typeof true      // "boolean"
+typeof "hello"   // "string"
+    </div>
+
+    <div class="note">
+      JavaScript does not differentiate between integer and float.
+      Both are considered as <b>number</b>.
+    </div>
+
+     <h1>Console & Browser</h1>
+
+    <h2>Console In JavaScript</h2>
+    <img src="Images/console.png" alt="Console REPL diagram">
+
+    <div class="definition">
+      Console is a developer tool that works as a REPL system.
+    </div>
+
+    <p>REPL stands for:</p>
+    <ul>
+      <li><b>Read</b></li>
+      <li><b>Evaluate</b></li>
+      <li><b>Print</b></li>
+      <li><b>Loop</b></li>
+    </ul>
+
+    <h3>How Console Works</h3>
+    <p>
+      When you open the browser console, it continuously waits for your input. This is the <b>Read</b> phase.
+    </p>
+
+    <div class="example">
+1 + 1
+    </div>
+
+    <p>
+      When you press Enter, the console evaluates the expression. This is the <b>Evaluate</b> phase.
+    </p>
+
+    <div class="example">
+2
+    </div>
+
+    <p>
+      This is the <b>Print</b> phase. After printing, the console loops back and waits for the next input.
+    </p>
+
+    <h3>REPL Flow</h3>
+    <ul>
+      <li>Console reads your input</li>
+      <li>Evaluates the code</li>
+      <li>Prints the result</li>
+      <li>Loops back to wait for next input</li>
+    </ul>
+
+    <h3>Examples</h3>
+    <div class="example">
+10 + 5        // Output: 15
+"Hi" + " JS"  // Output: Hi JS
+true && false // Output: false
+    </div>
+
+    <div class="note">
+      Console is not just for output. It is used to test, debug, and experiment with code in real time.
+    </div>
+
+    <h3>Important Clarification</h3>
+    <ul>
+      <li>Console is a tool</li>
+      <li>JavaScript is the language</li>
+    </ul>
+
+    <div class="note">
+      Console does not convert code to machine language. It only helps execute and display results.
+    </div>
+
+    <h2>JavaScript In Browser</h2>
+    <div class="definition">
+      JavaScript is the only programming language directly understood by browsers.
+    </div>
+
+    <p>
+      You can run JavaScript directly inside the browser console.
+    </p>
+
+    <div class="definition">
+      Console is a developer tool that works as a REPL system (Read, Evaluate, Print, Loop) where JavaScript code can be executed and tested in real time.
+    </div>
   </main>
 
   <script src="script.js"></script>
+  </main>
+
+  <script src="script.js"></script>
+
+  
 </body>
 </html>

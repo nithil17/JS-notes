@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Literals (Backticks)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="console.html">Console & Browser</a></li>
+      <li><a href="practice.html">Viva & Homework</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <section>
+
+  <h2>✨ Template Literals (Backticks)</h2>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Template literals are used to insert variables directly inside strings using backticks (`).
+  </div>
+
+  <p>
+    Teacher’s idea:
+    <br>
+    <b>“Instead of using multiple + signs, we can directly embed variables inside a string.”</b>
+  </p>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>🧵 Problem with Normal Strings (Concatenation)</h3>
+
+  <div style="border-left: 4px solid #dc2626; padding: 10px; background-color: #fef2f2;">
+    Using + to join strings becomes messy and hard to read.
+  </div>
+
+  <pre><code>
+let name = "Samarth";
+let profession = "teaching";
+let city = "New Delhi";
+
+let output = "Hi I am " + name + " " + profession + " in " + city;
+
+console.log(output);
+  </code></pre>
+
+  <h3>🧠 Explanation</h3>
+
+  <p>
+    - We are joining multiple strings using <b>+</b><br>
+    - Every variable needs separate handling<br>
+    - For long sentences → too many + signs ❌
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Hi I am Samarth teaching in New Delhi
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>✅ Solution: Template Literals</h3>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Use backticks (`) and ${} to directly insert variables.
+  </div>
+
+  <pre><code>
+let name = "Samarth";
+let profession = "teaching";
+let city = "New Delhi";
+
+let output = `Hi I am ${name} ${profession} in ${city}`;
+
+console.log(output);
+  </code></pre>
+
+  <h3>🧠 Step-by-Step Flow</h3>
+
+  <p>
+    Step 1: Use backticks (` `) instead of quotes<br>
+    Step 2: Wherever you need a variable → use <b>${variable}</b><br>
+    Step 3: JavaScript automatically replaces variables with values
+  </p>
+
+  <div style="border-left: 4px solid #16a34a; padding: 10px; background-color: #ecfdf5;">
+    Output: Hi I am Samarth teaching in New Delhi
+  </div>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>⚡ Important Rules</h3>
+
+  <ul>
+    <li>Template literals work ONLY with backticks (`)</li>
+    <li>Use <b>${}</b> to insert variables</li>
+    <li>No need for + operator</li>
+  </ul>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>🔥 Why Template Literals are Better</h3>
+
+  <div style="border-left: 4px solid #2b6cb0; padding: 10px; background-color: #f1f5f9;">
+    Cleaner, readable, and scalable way to build strings.
+  </div>
+
+  <table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+      <th>Concatenation</th>
+      <th>Template Literal</th>
+    </tr>
+    <tr>
+      <td>"Hi " + name + " from " + city</td>
+      <td>`Hi ${name} from ${city}`</td>
+    </tr>
+  </table>
+
+</section>
+
+<hr>
+
+<section>
+
+  <h3>🚨 Interview Insight</h3>
+
+  <div style="border-left: 4px solid #f59e0b; padding: 10px; background-color: #fffbeb;">
+    Template literals are the preferred modern way (ES6 standard).
+  </div>
+
+  <p>
+    Teacher’s message:
+    <br>
+    <b>“Concatenation works, but template literals are the professional way.”</b>
+  </p>
+
+</section>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
