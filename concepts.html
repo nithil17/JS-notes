@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concepts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+       <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="concepts.html">Concepts</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+
+   
+
+  <h1>JavaScript Core Concepts</h1>
+
+  <p>This guide is designed to help you master JavaScript output-based questions commonly asked in interviews. Each concept is explained step-by-step with clear mental models and examples.</p>
+
+  <hr>
+
+  <section>
+    <h2>1. Type Coercion</h2>
+
+
+<div class="definition-box">
+  <strong>Definition:</strong>
+  Type coercion is when JavaScript automatically converts a value from one type to another to perform an operation.
+</div>
+
+<h3>Key Mental Model</h3>
+<ul>
+  <li><strong>+</strong> → prefers <strong>string</strong></li>
+  <li><strong>- * /</strong> → converts to <strong>number</strong></li>
+  <li>Boolean → <strong>true = 1</strong>, <strong>false = 0</strong></li>
+</ul>
+
+<h3>Example 1: String + Number</h3>
+<pre><code>console.log("5" + 2);</code></pre>
+<p><strong>Step-by-step:</strong></p>
+<ul>
+  <li>"5" is a string → convert 2 → "2"</li>
+  <li>"5" + "2" = "52"</li>
+</ul>
+<p><strong>Output:</strong> "52"</p>
+
+<h3>Example 2: Mixed Operations</h3>
+<pre><code>console.log(5 + 2 + "3");</code></pre>
+<ul>
+  <li>5 + 2 = 7</li>
+  <li>7 + "3" = "73"</li>
+</ul>
+<p><strong>Output:</strong> "73"</p>
+
+<h3>Example 3: Numeric Operators</h3>
+<pre><code>console.log("10" - "4" - "3");</code></pre>
+<ul>
+  <li>"10" - "4" = 6</li>
+  <li>6 - "3" = 3</li>
+</ul>
+<p><strong>Output:</strong> 3</p>
+
+<div class="note-box">
+  <strong>Key Insight:</strong>
+  "+" concatenates, while "-", "*", "/" force numeric conversion.
+</div>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>2. == vs ===</h2>
+
+
+<div class="definition-box">
+  <strong>Definition:</strong>
+  <ul>
+    <li><strong>==</strong> compares values after type conversion</li>
+    <li><strong>===</strong> compares value and type without conversion</li>
+  </ul>
+</div>
+
+<h3>Example</h3>
+<pre><code>console.log(false == "0");</code></pre>
+<ul>
+  <li>false → 0</li>
+  <li>"0" → 0</li>
+  <li>0 == 0 → true</li>
+</ul>
+
+<h3>Strict Comparison</h3>
+<pre><code>console.log(5 === "5");</code></pre>
+<p><strong>Output:</strong> false</p>
+
+<div class="note-box">
+  Always prefer <strong>===</strong> in real-world coding.
+</div>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>3. Truthy and Falsy Values</h2>
+
+
+<div class="definition-box">
+  Values that behave as true or false in conditions.
+</div>
+
+<h3>Falsy Values (ONLY 6)</h3>
+<pre><code>false, 0, "", null, undefined, NaN</code></pre>
+
+<h3>Everything Else is Truthy</h3>
+<pre><code>[], {}, "0"</code></pre>
+
+<h3>Example</h3>
+<pre><code>if ([]) {
+
+
+console.log("Yes");
+}</code></pre>
+
+
+<p><strong>Output:</strong> Yes</p>
+
+<div class="note-box">
+  Arrays and objects are always truthy.
+</div>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>4. Short Circuiting</h2>
+
+
+<h3>OR (||)</h3>
+<p>Returns the first truthy value.</p>
+
+<pre><code>console.log(null || 0 || "JS");</code></pre>
+<p><strong>Output:</strong> "JS"</p>
+
+<h3>AND (&&)</h3>
+<p>Returns the first falsy value or last value.</p>
+
+<pre><code>console.log("Hi" && 0 && "JS");</code></pre>
+<p><strong>Output:</strong> 0</p>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>5. Hoisting</h2>
+
+
+<div class="definition-box">
+  JavaScript moves variable and function declarations to the top before execution.
+</div>
+
+<h3>var Example</h3>
+<pre><code>console.log(a);
+var a = 10;</code></pre>
+<p><strong>Internally:</strong></p>
+<pre><code>var a;
+console.log(a); // undefined
+a = 10;</code></pre>
+
+
+<h3>let Example</h3>
+<pre><code>console.log(a);
+let a = 10;</code></pre>
+
+
+<p><strong>Output:</strong> ReferenceError</p>
+
+<div class="note-box">
+  let and const exist in the <strong>Temporal Dead Zone</strong>.
+</div>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>6. Functions (Hoisting Behavior)</h2>
+
+
+<h3>Function Declaration</h3>
+<pre><code>test();
+function test() {
+console.log("Hello");
+}</code></pre>
+
+
+<p><strong>Output:</strong> Hello</p>
+
+<h3>Function Expression</h3>
+<pre><code>test();
+var test = function() {
+console.log("Hello");
+};</code></pre>
+
+
+<p><strong>Output:</strong> TypeError</p>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>7. Objects vs Primitives</h2>
+
+
+<div class="definition-box">
+  Primitives are copied, objects are referenced.
+</div>
+
+<h3>Primitive Example</h3>
+<pre><code>let a = 10;
+let b = a;
+b = 20;</code></pre>
+
+
+<p><strong>a = 10</strong></p>
+
+<h3>Object Example</h3>
+<pre><code>let a = {x:10};
+let b = a;
+b.x = 20;</code></pre>
+
+
+<p><strong>a.x = 20</strong></p>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>8. Weird JavaScript Behavior</h2>
+
+
+<h3>typeof</h3>
+<pre><code>typeof NaN → "number"
+typeof null → "object"</code></pre>
+
+
+<h3>Comparison Chaining</h3>
+<pre><code>console.log(3 > 2 > 1);</code></pre>
+
+<ul>
+  <li>3 > 2 → true</li>
+  <li>true → 1</li>
+  <li>1 > 1 → false</li>
+</ul>
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>9. Closures</h2>
+
+
+<div class="definition-box">
+  A closure is when a function remembers variables from its outer scope even after execution.
+</div>
+
+<pre><code>function outer() {
+
+let x = 10;
+return function() {
+console.log(x);
+};
+}</code></pre>
+
+
+<p>Even after outer() finishes, x is remembered.</p>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>10. var vs let in Loops</h2>
+
+
+<h3>var</h3>
+<pre><code>for (var i = 0; i < 3; i++) {
+
+
+setTimeout(() => console.log(i));
+}</code></pre>
+
+
+<p><strong>Output:</strong> 3 3 3</p>
+
+<h3>let</h3>
+<pre><code>for (let i = 0; i < 3; i++) {
+
+
+setTimeout(() => console.log(i));
+}</code></pre>
+
+
+<p><strong>Output:</strong> 0 1 2</p>
+
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Final Interview Strategy</h2>
+
+
+<ul>
+  <li>Check operator type (+ vs -)</li>
+  <li>Check type coercion</li>
+  <li>Check == vs ===</li>
+  <li>Check truthy/falsy</li>
+  <li>Check scope (var/let)</li>
+  <li>Check closures / async</li>
+</ul>
+
+
+  </section>
+
+
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
