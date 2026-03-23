@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Calling & DOM in JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+  <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="asynchronous.html">JavaScript Promises & Async/Await</a></li>
+      <li><a href="async.html">Asynchronous JavaScript – Event Loop, Web APIs, setTimeout & Callback Hell</a></li>
+      <li><a href="this.html">JavaScript "this" Keyword – Complete Mastery</a></li>
+      <li><a href="dom.html">API Calling & DOM in JavaScript</a></li>
+      <li><a href="concepts.html">Concepts</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <h1>API Calling & DOM in JavaScript – Complete Beginner to Interview Guide</h1>
+
+<!-- ================= API INTRO ================= -->
+
+<h2>What is an API?</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  <strong>Definition:</strong><br>
+  API (Application Programming Interface) is an <strong>endpoint that provides data</strong> without exposing internal logic.
+</div>
+
+<p>
+From the session:
+</p>
+
+<p>
+"API is an endpoint. You don’t know what happens behind the scene — you just get data." :contentReference[oaicite:0]{index=0}
+</p>
+
+---
+
+<h2>Simple Real-Life Analogy</h2>
+
+<ul>
+  <li><strong>TV Remote</strong> → You press buttons</li>
+  <li><strong>TV System</strong> → Works internally</li>
+  <li><strong>You</strong> → Only see result</li>
+</ul>
+
+<p>
+👉 Remote = API<br>
+👉 You don’t know internal working, only output
+</p>
+
+---
+
+<h2>Key Role of API</h2>
+
+<ul>
+  <li>Provides data</li>
+  <li>Acts as middle layer</li>
+  <li>Connects applications</li>
+</ul>
+
+<div style="border-left: 4px solid #2196F3; padding: 10px;">
+  API = Communication between systems
+</div>
+
+---
+
+<!-- ================= FETCH ================= -->
+
+<h2>Calling API in JavaScript</h2>
+
+<p>
+There are multiple ways:
+</p>
+
+<ul>
+  <li>fetch (Most important ✅)</li>
+  <li>axios (Second most important ✅)</li>
+</ul>
+
+---
+
+<h2>Fetch API (Core Concept)</h2>
+
+<div style="border-left: 4px solid #FF9800; padding: 10px;">
+  Fetch is a <strong>Web API</strong> → built into browser
+</div>
+
+<ul>
+  <li>No installation required</li>
+  <li>Returns a Promise</li>
+</ul>
+
+---
+
+<h3>Basic Syntax</h3>
+
+<pre><code>
+fetch("API_URL")
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
+</code></pre>
+
+---
+
+<h3>Important Concept (VERY IMPORTANT)</h3>
+
+<div style="border-left: 4px solid #f44336; padding: 10px;">
+  Fetch does NOT return full data directly ❌
+</div>
+
+<p>
+It returns <strong>metadata (partial data)</strong> first. :contentReference[oaicite:1]{index=1}
+</p>
+
+---
+
+<h2>How to Get Actual Data?</h2>
+
+<p>
+Use:
+</p>
+
+<pre><code>
+response.json()
+</code></pre>
+
+---
+
+<h3>Why .json()?</h3>
+
+<ul>
+  <li>Waits for full data</li>
+  <li>Converts data into JSON format</li>
+  <li>Returns a Promise</li>
+</ul>
+
+---
+
+<h3>Final Fetch Flow</h3>
+
+<pre><code>
+fetch("API_URL")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+</code></pre>
+
+---
+
+<!-- ================= ASYNC AWAIT ================= -->
+
+<h2>Fetch with Async/Await</h2>
+
+<pre><code>
+async function getData() {
+  const res = await fetch("API_URL");
+  const data = await res.json();
+  console.log(data);
+}
+</code></pre>
+
+---
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  Rule:
+  <ul>
+    <li>await works ONLY inside async</li>
+    <li>Both fetch & json return Promises</li>
+  </ul>
+</div>
+
+---
+
+<!-- ================= AXIOS ================= -->
+
+<h2>Axios (Better Alternative)</h2>
+
+<div style="border-left: 4px solid #2196F3; padding: 10px;">
+  Axios = Third-party library
+</div>
+
+<ul>
+  <li>Needs installation (or CDN)</li>
+  <li>Returns Promise</li>
+  <li>Gives full data directly ✅</li>
+</ul>
+
+---
+
+<h3>CDN Concept</h3>
+
+<div style="border-left: 4px solid #FF9800; padding: 10px;">
+  CDN = Content Delivery Network
+</div>
+
+<p>
+👉 Access library without installing  
+👉 Requires internet
+</p>
+
+---
+
+<h3>Axios Syntax</h3>
+
+<pre><code>
+axios.get("API_URL")
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err));
+</code></pre>
+
+---
+
+<h3>Key Difference</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+  <th>Feature</th>
+  <th>Fetch</th>
+  <th>Axios</th>
+</tr>
+<tr>
+  <td>Installation</td>
+  <td>No</td>
+  <td>Yes / CDN</td>
+</tr>
+<tr>
+  <td>Data</td>
+  <td>Partial → needs .json()</td>
+  <td>Full data directly</td>
+</tr>
+<tr>
+  <td>Ease</td>
+  <td>More steps</td>
+  <td>Simpler</td>
+</tr>
+</table>
+
+---
+
+<!-- ================= DOM ================= -->
+
+<h2>What is DOM?</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  DOM = Document Object Model
+</div>
+
+<p>
+Breaking it:
+</p>
+
+<ul>
+  <li><strong>Document</strong> → HTML</li>
+  <li><strong>Object</strong> → JavaScript representation</li>
+  <li><strong>Model</strong> → Modify/Change</li>
+</ul>
+
+---
+
+<h3>Simple Definition</h3>
+
+<div style="border-left: 4px solid #2196F3; padding: 10px;">
+  DOM = Change HTML using JavaScript
+</div>
+
+---
+
+<!-- ================= DOM FLOW ================= -->
+
+<h2>DOM Flow (Golden Rule)</h2>
+
+<pre><code>
+1. Selection
+2. Manipulation
+</code></pre>
+
+---
+
+<h2>DOM Selection Methods</h2>
+
+<ul>
+  <li>document.getElementById()</li>
+  <li>document.getElementsByClassName()</li>
+  <li>document.getElementsByTagName()</li>
+  <li>document.querySelector()</li>
+  <li>document.querySelectorAll()</li>
+</ul>
+
+---
+
+<h3>Important Behavior</h3>
+
+<ul>
+  <li>ID → Single element</li>
+  <li>Class → Array-like (HTMLCollection)</li>
+  <li>Tag → Array-like</li>
+</ul>
+
+---
+
+<!-- ================= EXAMPLES ================= -->
+
+<h2>Example: Selection + Manipulation</h2>
+
+<pre><code>
+let el = document.getElementById("title");
+el.style.color = "red";
+</code></pre>
+
+---
+
+<h3>Class Example</h3>
+
+<pre><code>
+let items = document.getElementsByClassName("box");
+
+for (let item of items) {
+  item.style.color = "blue";
+}
+</code></pre>
+
+---
+
+<h3>Query Selector (Best Method)</h3>
+
+<pre><code>
+document.querySelector("h1");     // tag
+document.querySelector(".class"); // class
+document.querySelector("#id");    // id
+</code></pre>
+
+---
+
+<h3>Query Selector All</h3>
+
+<pre><code>
+let all = document.querySelectorAll(".box");
+
+all.forEach(item => {
+  item.style.color = "green";
+});
+</code></pre>
+
+---
+
+<!-- ================= DRY PRINCIPLE ================= -->
+
+<h2>DRY Principle</h2>
+
+<div style="border-left: 4px solid #f44336; padding: 10px;">
+  DRY = Do Not Repeat Yourself
+</div>
+
+<p>
+Instead of repeating:
+</p>
+
+<pre><code>
+el.style.color = "red";
+el.style.fontSize = "20px";
+</code></pre>
+
+<p>
+Use:
+</p>
+
+<pre><code>
+el.style.cssText = "color:red; font-size:20px;";
+</code></pre>
+
+---
+
+<!-- ================= FINAL SUMMARY ================= -->
+
+<h2>Final Summary</h2>
+
+<pre><code>
+API → Get data
+Fetch → Built-in, returns partial data
+JSON → Converts to full data
+Axios → Easier, returns full data
+DOM → Change HTML using JS
+</code></pre>
+
+---
+
+<h2>Interview Questions</h2>
+
+<ul>
+  <li>What is API?</li>
+  <li>Difference: Fetch vs Axios</li>
+  <li>Why .json() is needed?</li>
+  <li>What is DOM?</li>
+  <li>Difference: querySelector vs querySelectorAll</li>
+  <li>What is HTMLCollection?</li>
+</ul>
+
+---
+
+<h2>Teacher’s Final Insight</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  If you remember this:
+</div>
+
+<pre><code>
+Fetch → Promise → JSON → Data
+DOM → Select → Manipulate
+</code></pre>
+
+<p>
+You can solve 80% of interview questions easily 🚀
+</p>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

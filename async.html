@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asynchronous JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+     <li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="asynchronous.html">JavaScript Promises & Async/Await</a></li>
+      <li><a href="async.html">Asynchronous JavaScript – Event Loop, Web APIs, setTimeout & Callback Hell</a></li>
+      <li><a href="this.html">JavaScript "this" Keyword – Complete Mastery</a></li>
+      <li><a href="dom.html">>API Calling & DOM in JavaScript</a></li>
+      <li><a href="concepts.html">Concepts</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    <h1>Asynchronous JavaScript – Event Loop, Web APIs, setTimeout & Callback Hell</h1>
+
+<!-- ================= INTRO ================= -->
+
+<h2>JavaScript Nature (VERY IMPORTANT)</h2>
+
+<div style="border-left: 4px solid #f44336; padding: 10px;">
+  <strong>Golden Rule:</strong><br>
+  JavaScript is ALWAYS <strong>synchronous</strong>.
+</div>
+
+<p>
+Even if it behaves asynchronously, the core nature does not change.
+</p>
+
+<p>
+👉 From class:
+</p>
+
+<pre><code>
+JavaScript = Single-threaded + Synchronous
+</code></pre>
+
+<p>
+As explained in the session, async behavior comes from external systems like Web APIs, not JavaScript itself. :contentReference[oaicite:0]{index=0}
+</p>
+
+---
+
+<h2>What is Synchronous?</h2>
+
+<div style="border-left: 4px solid #2196F3; padding: 10px;">
+  Synchronous means execution happens <strong>step by step in order</strong>.
+</div>
+
+<pre><code>
+console.log("Start");
+console.log("Wait for 2 seconds");
+console.log("End");
+</code></pre>
+
+<h3>Output</h3>
+
+<pre><code>
+Start
+Wait for 2 seconds
+End
+</code></pre>
+
+<p>
+👉 JavaScript does NOT wait. It just executes line by line instantly.
+</p>
+
+---
+
+<!-- ================= WEB APIs ================= -->
+
+<h2>Why JavaScript Feels Asynchronous?</h2>
+
+<p>
+Because of <strong>Web APIs</strong>.
+</p>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  Web APIs = Superpowers of the browser (NOT JavaScript)
+</div>
+
+<h3>Examples</h3>
+
+<ul>
+  <li>setTimeout</li>
+  <li>setInterval</li>
+  <li>fetch</li>
+  <li>console</li>
+  <li>localStorage</li>
+</ul>
+
+<p>
+👉 Even <code>console.log</code> is NOT part of JavaScript. :contentReference[oaicite:1]{index=1}
+</p>
+
+---
+
+<!-- ================= SETTIMEOUT ================= -->
+
+<h2>setTimeout Explained</h2>
+
+<pre><code>
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Waited 5 seconds");
+}, 5000);
+
+console.log("End");
+</code></pre>
+
+<h3>Output</h3>
+
+<pre><code>
+Start
+End
+Waited 5 seconds
+</code></pre>
+
+<h3>Why?</h3>
+
+<ul>
+  <li>JavaScript executes synchronously</li>
+  <li>setTimeout is handled by browser</li>
+  <li>JS does NOT wait</li>
+</ul>
+
+---
+
+<!-- ================= ARCHITECTURE ================= -->
+
+<h2>Behind the Scenes (MOST IMPORTANT)</h2>
+
+<h3>Components</h3>
+
+<ul>
+  <li>Call Stack (JS Engine)</li>
+  <li>Web APIs (Browser)</li>
+  <li>Callback Queue</li>
+  <li>Microtask Queue</li>
+  <li>Event Loop</li>
+</ul>
+
+---
+
+<h3>Execution Flow</h3>
+
+<ol>
+  <li>Code enters Call Stack</li>
+  <li>setTimeout is sent to Web APIs</li>
+  <li>Timer starts in browser</li>
+  <li>Callback stored in memory</li>
+  <li>After timer → goes to Callback Queue</li>
+  <li>Event Loop checks if Call Stack is empty</li>
+  <li>If empty → moves callback to Call Stack</li>
+  <li>Callback executes</li>
+</ol>
+
+---
+
+<h2>Event Loop (Core Concept)</h2>
+
+<div style="border-left: 4px solid #FF9800; padding: 10px;">
+  Event Loop continuously checks:
+  <ul>
+    <li>Is Call Stack empty?</li>
+    <li>If yes → take task from Queue</li>
+  </ul>
+</div>
+
+<p>
+👉 It runs continuously like a loop.
+</p>
+
+---
+
+<!-- ================= MULTIPLE TIMEOUT ================= -->
+
+<h2>Multiple setTimeout Example</h2>
+
+<pre><code>
+setTimeout(() => console.log("2 sec"), 2000);
+setTimeout(() => console.log("3 sec"), 3000);
+</code></pre>
+
+<h3>Key Insight</h3>
+
+<ul>
+  <li>Timers run in parallel</li>
+  <li>Total time = max delay</li>
+</ul>
+
+<p>
+👉 Total time = <strong>3 seconds (not 5)</strong> :contentReference[oaicite:2]{index=2}
+</p>
+
+---
+
+<!-- ================= SETINTERVAL ================= -->
+
+<h2>setInterval (Repeating Tasks)</h2>
+
+<pre><code>
+setInterval(() => {
+  console.log("Running...");
+}, 2000);
+</code></pre>
+
+<p>
+👉 Runs every 2 seconds infinitely
+</p>
+
+---
+
+<h3>Stopping Interval</h3>
+
+<pre><code>
+let id = setInterval(() => {
+  console.log("Running...");
+}, 2000);
+
+setTimeout(() => {
+  clearInterval(id);
+}, 10000);
+</code></pre>
+
+<p>
+👉 Stops after 10 seconds
+</p>
+
+---
+
+<!-- ================= CALLBACK HELL ================= -->
+
+<h2>Callback Hell (Pyramid of Doom)</h2>
+
+<h3>Problem Statement</h3>
+
+Perform dependent tasks:
+
+<ul>
+  <li>1. Select Image (4s)</li>
+  <li>2. Apply Filter (2s)</li>
+  <li>3. Add Caption (5s)</li>
+  <li>4. Upload (3s)</li>
+</ul>
+
+---
+
+<h3>Solution (Nested Callbacks)</h3>
+
+<pre><code>
+setTimeout(() => {
+  console.log("Image Selected");
+
+  setTimeout(() => {
+    console.log("Filter Applied");
+
+    setTimeout(() => {
+      console.log("Caption Added");
+
+      setTimeout(() => {
+        console.log("Image Uploaded");
+      }, 3000);
+
+    }, 5000);
+
+  }, 2000);
+
+}, 4000);
+</code></pre>
+
+---
+
+<h3>Problem</h3>
+
+<div style="border-left: 4px solid #f44336; padding: 10px;">
+  This structure is called:
+  <strong>Callback Hell / Pyramid of Doom</strong>
+</div>
+
+---
+
+<h3>Why It’s Bad?</h3>
+
+<ul>
+  <li>Hard to read</li>
+  <li>Hard to debug</li>
+  <li>Hard to handle errors</li>
+  <li>Code grows horizontally</li>
+</ul>
+
+<p>
+👉 From session:
+</p>
+
+<p>
+"Error handling becomes difficult in callback hell" :contentReference[oaicite:3]{index=3}
+</p>
+
+---
+
+<!-- ================= SOLUTION ================= -->
+
+<h2>Better Solutions</h2>
+
+<ul>
+  <li>Callbacks ❌</li>
+  <li>Promises ✅</li>
+  <li>Async/Await 🚀 (Best)</li>
+</ul>
+
+---
+
+<h2>Final Mental Model</h2>
+
+<pre><code>
+JavaScript → synchronous
+Browser → handles async
+Event Loop → manages execution
+</code></pre>
+
+---
+
+<h2>Interview Questions</h2>
+
+<ul>
+  <li>Why JS is synchronous but behaves async?</li>
+  <li>Explain Event Loop</li>
+  <li>What is Callback Queue?</li>
+  <li>Difference: setTimeout vs setInterval</li>
+  <li>What is Callback Hell?</li>
+</ul>
+
+---
+
+<h2>Teacher’s Final Insight</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+  If you remember ONLY THIS:
+</div>
+
+<pre><code>
+JavaScript never waits.
+Browser handles waiting.
+Event loop manages execution.
+</code></pre>
+
+<p>
+You will never get async JS wrong in interviews.
+</p>
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
