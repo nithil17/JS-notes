@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM-2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="variables">
+  <button id="theme-toggle" type="button">Toggle Mode</button>
+
+  <nav class="topic-nav" aria-label="Topics">
+    <h2>Topics</h2>
+    <ul>
+<li><a href="index.html">Home</a></li>
+      <li><a href="basics.html">JS Basics</a></li>
+      <li><a href="ifelse.html">If - Else</a></li>
+      <li><a href="operators.html">Operators</a></li>
+      <li><a href="templateliterals.html">Template Literals</a></li>
+      <li><a href="loops.html">Loops</a></li>
+      <li><a href="asynchronous.html">JavaScript Promises & Async/Await</a></li>
+      <li><a href="async.html">Asynchronous JavaScript – Event Loop, Web APIs, setTimeout & Callback Hell</a></li>
+      <li><a href="this.html">JavaScript "this" Keyword – Complete Mastery</a></li>
+      <li><a href="dom.html">>API Calling & DOM in JavaScript</a></li>
+      <li><a href="dom2.html">DOM-2</a></li>
+      <li><a href="concepts.html">Concepts</a></li>
+    </ul>
+  </nav>
+
+  <nav id="section-nav" class="section-nav" aria-label="Page sections">
+    <h3>On This Page</h3>
+    <ul id="section-nav-list"></ul>
+  </nav>
+
+  <main class="page-content">
+    
+
+<h2>DOM Manipulation & Events (Teacher Style Explanation)</h2>
+
+<p>
+In this session, we move deeper into <strong>DOM manipulation</strong> and understand how JavaScript interacts with HTML elements dynamically.
+</p>
+
+---
+
+<h2>1. DOM Basics Recap</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+<strong>Two Core Steps:</strong>
+<ul>
+  <li><strong>Selection</strong> → Select the element</li>
+  <li><strong>Manipulation</strong> → Modify the element</li>
+</ul>
+</div>
+
+<p><strong>Selection Methods:</strong></p>
+
+<pre><code>
+document.getElementById()
+document.getElementsByClassName()
+document.getElementsByTagName()
+document.querySelector()
+document.querySelectorAll()
+</code></pre>
+
+---
+
+<h2>2. Getting Text from Elements</h2>
+
+<h3>Methods:</h3>
+
+<ul>
+  <li><strong>innerText</strong></li>
+  <li><strong>textContent</strong></li>
+  <li><strong>innerHTML</strong></li>
+</ul>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+let h1 = document.querySelector("h1");
+
+console.log(h1.innerText);
+console.log(h1.textContent);
+console.log(h1.innerHTML);
+</code></pre>
+
+---
+
+<h3>Key Differences (VERY IMPORTANT)</h3>
+
+<div style="border-left: 4px solid #FF9800; padding: 10px;">
+<strong>Teacher Insight:</strong>
+</div>
+
+<ul>
+  <li><strong>innerText</strong> → "Smart" → respects CSS (hidden text not shown)</li>
+  <li><strong>textContent</strong> → "Brainless" → shows everything (even hidden)</li>
+  <li><strong>innerHTML</strong> → returns text + HTML tags</li>
+</ul>
+
+---
+
+<h3>Example with Hidden Content</h3>
+
+<pre><code>
+&lt;h1&gt;Hello &lt;span style="display:none"&gt;Hidden&lt;/span&gt;&lt;/h1&gt;
+</code></pre>
+
+<pre><code>
+h1.innerText      // "Hello"
+h1.textContent    // "Hello Hidden"
+</code></pre>
+
+---
+
+<h3>Getter & Setter Behavior</h3>
+
+<pre><code>
+h1.innerText = "New Text";
+</code></pre>
+
+<p>
+👉 These methods can both <strong>get and set values</strong>
+</p>
+
+---
+
+<h2>3. innerHTML Power</h2>
+
+<pre><code>
+h1.innerHTML = "&lt;em&gt;Hello&lt;/em&gt;";
+</code></pre>
+
+<p>
+Output: <em>Hello</em> (styled as italic)
+</p>
+
+<p>
+👉 innerHTML allows injecting full HTML elements
+</p>
+
+---
+
+<h2>4. Working with Attributes</h2>
+
+<h3>Getter:</h3>
+
+<pre><code>
+element.getAttribute("type");
+</code></pre>
+
+<h3>Setter:</h3>
+
+<pre><code>
+element.setAttribute("type", "password");
+</code></pre>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+let input = document.querySelector("input");
+
+input.getAttribute("type");   // "text"
+input.setAttribute("type", "password");
+</code></pre>
+
+---
+
+<h3>Anchor Example</h3>
+
+<pre><code>
+anchor.setAttribute("href", "https://google.com");
+anchor.setAttribute("target", "_blank");
+</code></pre>
+
+---
+
+<h2>5. classList (Better Way)</h2>
+
+<div style="border-left: 4px solid #2196F3; padding: 10px;">
+Instead of using setAttribute for class, use classList
+</div>
+
+---
+
+<h3>Methods:</h3>
+
+<pre><code>
+element.classList.add("className");
+element.classList.remove("className");
+element.classList.toggle("className");
+element.classList.contains("className");
+</code></pre>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+h1.classList.add("red");
+h1.classList.remove("red");
+</code></pre>
+
+---
+
+<h3>Toggle Concept (IMPORTANT)</h3>
+
+<p>
+"Toggle means reverse the state"
+</p>
+
+<pre><code>
+h1.classList.toggle("active");
+</code></pre>
+
+<ul>
+  <li>If class exists → removed</li>
+  <li>If class not exists → added</li>
+</ul>
+
+---
+
+<h3>Teacher Analogy</h3>
+
+<p>
+Toggle = Fan Switch  
+ON → OFF  
+OFF → ON
+</p>
+
+---
+
+<h2>6. DOM Tree Traversal</h2>
+
+<p>
+Moving inside DOM without selecting again
+</p>
+
+---
+
+<h3>Navigation Methods:</h3>
+
+<ul>
+  <li><strong>nextElementSibling</strong></li>
+  <li><strong>previousElementSibling</strong></li>
+  <li><strong>parentElement</strong></li>
+  <li><strong>children</strong></li>
+</ul>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+let item = document.querySelector("li");
+
+item.nextElementSibling.style.color = "green";
+item.previousElementSibling.style.color = "orange";
+</code></pre>
+
+---
+
+<h3>Parent Access</h3>
+
+<pre><code>
+item.parentElement.style.border = "2px solid black";
+</code></pre>
+
+---
+
+<h3>Children Access</h3>
+
+<pre><code>
+item.parentElement.children[0].style.background = "yellow";
+</code></pre>
+
+<p>
+👉 children returns array-like structure
+</p>
+
+---
+
+<h2>7. Creating Elements Dynamically</h2>
+
+<h3>Steps:</h3>
+
+<ol>
+  <li>Select parent</li>
+  <li>Create element</li>
+  <li>Add content</li>
+  <li>Append to DOM</li>
+</ol>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+let div = document.querySelector("div");
+
+let p = document.createElement("p");
+p.innerText = "Hello from JS";
+
+div.appendChild(p);
+</code></pre>
+
+---
+
+<h3>Append vs Prepend</h3>
+
+<pre><code>
+div.append(p);   // end
+div.prepend(p);  // start
+</code></pre>
+
+---
+
+<h2>8. Events in JavaScript</h2>
+
+<div style="border-left: 4px solid #f44336; padding: 10px;">
+<strong>Definition:</strong><br>
+Event = User action (click, type, scroll, etc.)
+</div>
+
+---
+
+<h3>Examples of Events:</h3>
+
+<ul>
+  <li>click</li>
+  <li>dblclick</li>
+  <li>keydown</li>
+  <li>keyup</li>
+  <li>input</li>
+</ul>
+
+---
+
+<h2>9. Ways to Handle Events</h2>
+
+<h3>1. Inline Method (Not Recommended)</h3>
+
+<pre><code>
+&lt;button onclick="handleClick()"&gt;Click&lt;/button&gt;
+</code></pre>
+
+---
+
+<h3>2. JavaScript Property</h3>
+
+<pre><code>
+button.onclick = handleClick;
+</code></pre>
+
+<p>❌ Problem: Only one function allowed (overrides)</p>
+
+---
+
+<h3>3. addEventListener (BEST)</h3>
+
+<pre><code>
+button.addEventListener("click", handleClick1);
+button.addEventListener("click", handleClick2);
+</code></pre>
+
+<p>✅ Multiple functions can run</p>
+
+---
+
+<h2>10. Input Events</h2>
+
+<h3>Key Events:</h3>
+
+<ul>
+  <li><strong>keydown</strong> → when key pressed</li>
+  <li><strong>keyup</strong> → when key released</li>
+  <li><strong>input</strong> → when value changes</li>
+</ul>
+
+---
+
+<h3>Example:</h3>
+
+<pre><code>
+input.addEventListener("keydown", (event) => {
+  console.log(event.target.value);
+});
+</code></pre>
+
+---
+
+<h3>Important Rule</h3>
+
+<div style="border-left: 4px solid #FF9800; padding: 10px;">
+For input fields → use <strong>value</strong>  
+NOT innerText / textContent
+</div>
+
+---
+
+<h3>Event Object</h3>
+
+<pre><code>
+input.addEventListener("keydown", (event) => {
+  console.log(event);
+});
+</code></pre>
+
+<p>
+👉 Event contains full info about action :contentReference[oaicite:0]{index=0}  
+</p>
+
+---
+
+<h2>11. Image Carousel Logic (Very Important)</h2>
+
+<h3>Goal:</h3>
+
+<p>
+Change image every 2 seconds and loop back
+</p>
+
+---
+
+<h3>Code:</h3>
+
+<pre><code>
+let images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+
+let i = 0;
+
+setInterval(() => {
+  img.src = images[i];
+  i = (i + 1) % images.length;
+}, 2000);
+</code></pre>
+
+---
+
+<h3>Concept:</h3>
+
+<ul>
+  <li>Modulo (%) keeps index in range</li>
+  <li>Creates infinite loop cycle</li>
+</ul>
+
+---
+
+<h2>Teacher Insight (Very Important)</h2>
+
+<div style="border-left: 4px solid #4CAF50; padding: 10px;">
+"DOM is just a small part — rest is pure JavaScript logic"
+</div>
+
+---
+
+<h2>Final Summary</h2>
+
+<pre><code>
+Selection → querySelector
+Manipulation → innerText, innerHTML
+Attributes → getAttribute / setAttribute
+Classes → classList
+Traversal → parent / children / siblings
+Events → addEventListener
+Input → use value
+Dynamic → createElement + append
+</code></pre>
+
+
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
